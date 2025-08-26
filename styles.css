@@ -80,7 +80,7 @@ body{
 /* util */
 .hero{
   padding:2.5rem 1rem;
-  background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent 60%);
+  background:var(--muted);
   border-radius:12px;
 }
 

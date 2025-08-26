@@ -60,6 +60,7 @@ a {
   padding: 0.45rem 0.6rem;
   border-radius: 8px;
   transition: all 180ms ease-in-out;
+  display: inline-block;
 }
 
 a:hover, a:focus {

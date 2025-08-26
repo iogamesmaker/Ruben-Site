@@ -101,6 +101,12 @@ p{margin:0 0 1rem 0;color:var(--muted)}
   font-size:0.85rem;
 }
 
+a, a:visited, a:hover, a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+
 @media (max-width:640px){ /* For mobile devices */
   .header-inner{flex-direction:column;align-items:stretch;gap:0.5rem}
   .nav{justify-content:center;flex-wrap:wrap}

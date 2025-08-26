@@ -1,9 +1,10 @@
 /* styles.css */
-/* About 20% chatGPT, I really don't like CSS ;) */
+/* About 70% chatGPT, I really don't like CSS ;) */
 :root{
   --bg: #ffffff;
   --fg: #000000;
   --muted: #666666;
+  --light: #f6f6f6;
   --gap: 1rem;
   --max-width: 1100px;
 }
@@ -11,7 +12,7 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0; /* Compatibility for other systems were added by ChatGPT */
+  margin:0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background:var(--bg);
   color:var(--fg);
@@ -46,29 +47,46 @@ body{
   letter-spacing:0.02em;
 }
 
-.nav{
-  display:flex;
-  gap:0.75rem;
-  align-items:center;
+/* Nav and general link styles */
+.nav, a {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
-.nav a{
-  text-decoration:none;
-  color:var(--fg);
-  font-size:0.9rem;
-  padding:0.45rem 0.6rem;
-  border-radius:8px;
-  transition:all 140ms ease;
-  outline-offset:3px;
+/* Base link styling */
+a {
+  text-decoration: none;
+  color: var(--fg);
+  transition: color 140ms ease, background 140ms ease; /* Smooth transition for color and background */
 }
 
-.nav a:hover{
-  background:var(--fg);
-  color:var(--fg);
+/* Link-specific styling for navigation */
+.nav a {
+  font-size: 0.9rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  outline-offset: 3px;
 }
 
-.nav a:focus{
-  box-shadow:0 0 0 3px rgba(0,0,0,0.08);
+/* Hover and focus states for all links */
+a:hover, a:focus {
+  color: var(--bg);
+  background: var(--fg);
+  text-decoration: underline; /* Add underline for better feedback */
+}
+
+/* Active state for navigation links */
+.nav a:active {
+  background: var(--muted);
+  color: var(--light);
+}
+
+/* Visual cue for focus state */
+a:focus-visible {
+  outline: 3px solid var(--fg);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
 .container{
@@ -80,20 +98,18 @@ body{
 /* util */
 .hero{
   padding:2.5rem 1rem;
-  background:var(--muted);
+  background:var(--light);
   border-radius:12px;
 }
 
 h1,h2,h3{margin:0 0 0.5rem 0}
 p{margin:0 0 1rem 0;color:var(--muted)}
 
-a{color:var(--fg)}
-
-.card{ /* For later maybe */
+.card{
   border:1px solid #eee;
   padding:1rem;
   border-radius:10px;
-  background:transparent;
+  background:var(--light);
 }
 
 .footer{
@@ -103,7 +119,7 @@ a{color:var(--fg)}
   font-size:0.85rem;
 }
 
-@media (max-width:640px){ /* For mobile devices */
+@media (max-width:640px){
   .header-inner{flex-direction:column;align-items:stretch;gap:0.5rem}
   .nav{justify-content:center;flex-wrap:wrap}
   .site-title{display:flex;justify-content:center}

@@ -4,6 +4,7 @@
   --bg: #ffffff;
   --fg: #000000;
   --muted: #666666;
+  --light: #111111;
   --gap: 1rem;
   --max-width: 1100px;
 }
@@ -80,7 +81,7 @@ body{
 /* util */
 .hero{
   padding:2.5rem 1rem;
-  background:var(--muted);
+  background:var(--light);
   border-radius:12px;
 }
 

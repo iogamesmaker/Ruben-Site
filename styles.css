@@ -92,7 +92,7 @@ p{margin:0 0 1rem 0;color:var(--muted)}
   border:1px solid #eee;
   padding:1rem;
   border-radius:10px;
-  background:transparent;
+  background:var(--light);
 }
 
 .footer{

@@ -54,7 +54,7 @@ body{
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--fg);
   font-size: 0.9rem;
   padding: 0.45rem 0.6rem;

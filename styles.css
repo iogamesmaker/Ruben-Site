@@ -15,19 +15,18 @@ body{
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background:var(--bg);
   color:var(--fg);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   line-height:1.45;
 }
 
-/* Top bar */
+/* Transparante top bar */
 .header{
   width:100%;
-  border-bottom:1px solid #eee;
-  background:var(--bg);
   position:sticky;
   top:0;
   z-index:50;
+  background:rgba(255,255,255,0.3); /* transparant wit */
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(255,255,255,0.2);
 }
 
 .header-inner{
@@ -69,17 +68,6 @@ a:hover, a:focus {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-a:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-a:focus-visible {
-  outline: 3px solid var(--fg);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
-}
-
 .container{
   max-width:var(--max-width);
   margin:2rem auto;
@@ -115,35 +103,30 @@ p{margin:0 0 1rem 0;color:var(--muted)}
   .site-title{display:flex;justify-content:center}
 }
 
-/* helpers */
-.center{display:flex;align-items:center;justify-content:center}
-.muted{color:var(--muted)}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.slide-in-delay-1 { animation-delay: 0.1s; }
-.slide-in-delay-2 { animation-delay: 0.2s; }
-.slide-in-delay-3 { animation-delay: 0.3s; }
-.slide-in-delay-4 { animation-delay: 0.4s; }
-.slide-in-delay-5 { animation-delay: 0.5s; }
-
-/* Fullscreen parallax achtergrond */
+/* Hero background + text */
 .hero-bg {
   height: 100vh;
   background: url("stockphoto.png") center/cover no-repeat;
   position: relative;
-  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text {
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 6px rgba(255,255,255,0.8);
+  padding: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0.5rem 0 0;
 }

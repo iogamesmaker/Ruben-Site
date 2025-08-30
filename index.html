@@ -18,8 +18,13 @@
     </div>
   </header>
 
-  <!-- Fullscreen parallax achtergrond -->
-  <section class="hero-bg"></section>
+  <!-- Fullscreen parallax achtergrond + overlay tekst -->
+  <section class="hero-bg">
+    <div class="hero-text">
+      <h1><b>OST</b> Creative Media</h1>
+      <h2>Short-form Media Agency</h2>
+    </div>
+  </section>
 
   <section id="home" class="hero container slide-in slide-in-delay-1">
     <h1>Wat doen wij?</h1>
@@ -66,9 +71,8 @@
   </footer>
 
   <script>
-    // Parallax effect ~80% snelheid
     document.addEventListener("scroll", () => {
-      const y = window.scrollY * 0.2; // lager getal = trager
+      const y = window.scrollY * 0.2;
       document.querySelector(".hero-bg").style.backgroundPosition = `center calc(50% + ${y}px)`;
     });
   </script>

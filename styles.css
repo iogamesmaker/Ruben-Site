@@ -1,5 +1,4 @@
 /* styles.css */
-/* About 70% chatGPT, I really don't like CSS ;) */
 :root{
   --bg: #ffffff;
   --fg: #000000;
@@ -141,3 +140,10 @@ p{margin:0 0 1rem 0;color:var(--muted)}
 .slide-in-delay-4 { animation-delay: 0.4s; }
 .slide-in-delay-5 { animation-delay: 0.5s; }
 
+/* Fullscreen parallax achtergrond */
+.hero-bg {
+  height: 100vh;
+  background: url("stockphoto.png") center/cover no-repeat;
+  position: relative;
+  background-position: center center;
+}

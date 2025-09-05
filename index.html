@@ -4,10 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OST Creative Media</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #555555;
+      --light: #f9f9f9;
+      --gap: 1rem;
+      --max-width: 1100px;
+      --accent: #0066ff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--fg);
+      line-height:1.6;
+      scroll-behavior: smooth;
+    }
+    /* Header */
+    .header{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .header-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0.75rem 1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+    }
+    .site-title{
+      font-size:1.25rem;
+      font-weight:700;
+      letter-spacing:0.02em;
+    }
+    .nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .nav a {
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 0.95rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 6px;
+      transition: all 160ms ease-in-out;
+    }
+    .nav a:hover {
+      background: var(--accent);
+      color: var(--bg);
+      transform: translateY(-2px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    /* Hero */
+    .hero-bg {
+      height: 100vh;
+      background: url("hero-image.jpg") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 8%;
+    }
+    .hero-text {
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      max-width: 500px;
+      animation: fadeInUp 1.5s ease both;
+    }
+    .hero-text h1 { font-size: 3rem; margin:0; }
+    .hero-text h2 { font-size: 1.5rem; font-weight:400; margin-top:0.5rem; }
+    /* Sections */
+    .container{
+      max-width:var(--max-width);
+      margin:4rem auto;
+      padding:0 1rem;
+      opacity:0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .container.visible { opacity:1; transform: translateY(0); }
+    .hero{
+      padding:2.5rem 1.5rem;
+      background:var(--light);
+      border-radius:12px;
+    }
+    h1,h2,h3{margin:0 0 0.75rem 0}
+    p{margin:0 0 1.25rem 0;color:var(--muted)}
+    .card{
+      border:1px solid #eee;
+      padding:1.25rem;
+      border-radius:10px;
+      background:var(--light);
+    }
+    .card img {
+      max-width:100%;
+      border-radius:8px;
+      margin-bottom:1rem;
+    }
+    .image-container {
+      background: #f0f4ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-container img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    /* Footer */
+    .footer{
+      margin:4rem 0 2rem;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(30px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <header class="header slide-in">
+  <header class="header">
     <div class="header-inner">
       <div class="site-title">OST Creative Media</div>
       <nav class="nav">
@@ -17,60 +150,76 @@
       </nav>
     </div>
   </header>
-
-  <!-- Fullscreen parallax achtergrond + overlay tekst -->
+  <!-- Hero -->
   <section class="hero-bg">
     <div class="hero-text">
       <h1><b>OST</b> Creative Media</h1>
       <h2>Short-form Media Agency</h2>
     </div>
   </section>
-
-  <section id="home" class="hero container slide-in slide-in-delay-1">
-    <h1>Wat doen wij?</h1>
-    <li>Wij dkjhfnjkdkdnfgk</li>
+  <!-- Services -->
+  <section id="home" class="container">
+    <h1>Wat wij doen</h1>
+    <p>Wij helpen bedrijven en merken toegang te geven naar een grotere markt, via short-form content.</p>
     <div class="card">
-      <h2>Onze opties</h2>
+      <div class="image-container">
+        <img src="stockimage.jpg" alt="image">
+      </div>
+      <h2>Onze diensten</h2>
       <ul>
-        <li>dkjfkdfdjfh</li>
-        <li>jkdfngkjdfhg</li>
-        <li>ldjoidfgdfd</li>
+        <li>Social media content creatie</li>
+        <li>Korte promotievideo’s</li>
+        <li>Visuele storytelling</li>
       </ul>
     </div>
   </section>
-
-  <section id="about" class="container slide-in slide-in-delay-3">
-    <h2>Waarom we zo geweldig zijn</h2>
-    <p>dkfjkjdf</p>
-    <div class="card slide-in slide-in-delay-4">
-      <h3>Waarom kiezen voor ons?</h3>
+  <!-- About -->
+  <section id="about" class="container">
+    <h2>Waarom OST Creative Media?</h2>
+    <p>Wij combineren creativiteit met strategie om content te maken die niet alleen mooi oogt, maar ook resultaten oplevert.</p>
+    <div class="card">
+      <div class="image-container">
+        <img src="stockimage.jpg" alt="image">
+      </div>
+      <h3>Onze voordelen</h3>
       <ul>
-        <li>we zijn cool</li>
-        <li>2</li>
-        <li>3</li>
+        <li>Creatieve en flexibele aanpak</li>
+        <li>Snel en efficiënt geleverd</li>
+        <li>Altijd afgestemd op jouw merk</li>
       </ul>
     </div>
   </section>
-
-  <section class="container center slide-in slide-in-delay-5">
+  <!-- CTA -->
+  <section class="container center">
     <div class="card" style="cursor:pointer; text-align:center;">
-      <a href="https://calendly.com/ostcreativemarketing" target="_blank" class="nav-link">
-        <h2>Plan nu een gratis gesprek in via Calendy</h2>
+      <a href="https://calendly.com/ostcreativemarketing" target="_blank">
+        <h2>Plan nu een gratis gesprek in</h2>
       </a>
-      <p>Wij reageren zo snel mogenlijk. Tot later!</p>
+      <p>Wij reageren meestal binnen 24 uur. Tot snel!</p>
     </div>
   </section>
-
-  <section id="contact" class="container slide-in slide-in-delay-5">
+  <!-- Contact -->
+  <section id="contact" class="container">
     <h2>Contact</h2>
-    <p>Heb je vragen? Stuur ons een mail via <a href="mailto:kdjfkdjfkdjfk@gmail.com">kdjfkdjfkdjfk@gmail.com</a>.</p>
+    <p>Heb je vragen of wil je met ons samenwerken? Stuur een mailtje naar <a href="mailto:ostcreativemedia@gmail.com">ostcreativemedia@gmail.com [placeholder]</a>.</p>
   </section>
-
-  <footer class="footer slide-in slide-in-delay-5">
-    <p>&copy; 2025 OST Creative Media</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 OST Creative Media. Alle rechten voorbehouden.</p>
   </footer>
-
   <script>
+    // Reveal on scroll
+    const sections = document.querySelectorAll('.container');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+    // Parallax effect
     document.addEventListener("scroll", () => {
       const y = window.scrollY * 0.2;
       document.querySelector(".hero-bg").style.backgroundPosition = `center calc(50% + ${y}px)`;

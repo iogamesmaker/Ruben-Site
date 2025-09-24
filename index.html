@@ -18,7 +18,9 @@
             line-height: 1.6;
             color: #333;
         }
-
+        .header-text {
+            transform: translateY(7px);
+        }
         .container {
             width: 90%;
             max-width: 1200px;
@@ -73,9 +75,14 @@
         .logo {
             height: 50px;
             width: auto;
+            margin-right: 10px;
         }
 
-        /* Hero Sectie */
+        .logo-group {
+            display: flex;
+            align-items: center;
+        }
+
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.png') no-repeat center center/cover;
             color: white;
@@ -214,7 +221,7 @@
         }
 
         .footer-logo {
-            height: 150px;
+            height: 300px;
             width: auto;
             margin-bottom: 15px;
         }
@@ -259,7 +266,7 @@
 <body>
     <header>
         <div class="container header-container">
-            <a href="#"><img src="logo.png" alt="OST Creative Media Logo" class="logo"></a>
+            <a href="#"><img src="logo2.png" alt="OST Creative Media Logo" class="logo"></a><h2 class="header-text">OST Creative Media</h2>
         </div>
     </header>
 

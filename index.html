@@ -1,229 +1,353 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OST Creative Media</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #111111;
-      --muted: #555555;
-      --light: #f9f9f9;
-      --gap: 1rem;
-      --max-width: 1100px;
-      --accent: #0066ff;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--fg);
-      line-height:1.6;
-      scroll-behavior: smooth;
-    }
-    /* Header */
-    .header{
-      width:100%;
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid rgba(0,0,0,0.05);
-    }
-    .header-inner{
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:0.75rem 1rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:var(--gap);
-    }
-    .site-title{
-      font-size:1.25rem;
-      font-weight:700;
-      letter-spacing:0.02em;
-    }
-    .nav {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-    .nav a {
-      text-decoration: none;
-      color: var(--fg);
-      font-size: 0.95rem;
-      padding: 0.45rem 0.75rem;
-      border-radius: 6px;
-      transition: all 160ms ease-in-out;
-    }
-    .nav a:hover {
-      background: var(--accent);
-      color: var(--bg);
-      transform: translateY(-2px);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-    }
-    /* Hero */
-    .hero-bg {
-      height: 100vh;
-      background: url("hero-image.jpg") center/cover no-repeat;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding-left: 8%;
-    }
-    .hero-text {
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      max-width: 500px;
-      animation: fadeInUp 1.5s ease both;
-    }
-    .hero-text h1 { font-size: 3rem; margin:0; }
-    .hero-text h2 { font-size: 1.5rem; font-weight:400; margin-top:0.5rem; }
-    /* Sections */
-    .container{
-      max-width:var(--max-width);
-      margin:4rem auto;
-      padding:0 1rem;
-      opacity:0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-    .container.visible { opacity:1; transform: translateY(0); }
-    .hero{
-      padding:2.5rem 1.5rem;
-      background:var(--light);
-      border-radius:12px;
-    }
-    h1,h2,h3{margin:0 0 0.75rem 0}
-    p{margin:0 0 1.25rem 0;color:var(--muted)}
-    .card{
-      border:1px solid #eee;
-      padding:1.25rem;
-      border-radius:10px;
-      background:var(--light);
-    }
-    .card img {
-      max-width:100%;
-      border-radius:8px;
-      margin-bottom:1rem;
-    }
-    .image-container {
-      background: #f0f4ff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .image-container img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    /* Footer */
-    .footer{
-      margin:4rem 0 2rem;
-      text-align:center;
-      color:var(--muted);
-      font-size:0.9rem;
-    }
-    /* Animations */
-    @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(30px); }
-      to   { opacity:1; transform:translateY(0); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OST Creative Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Hero Sectie */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Testimonials Sectie */
+        .testimonials {
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .client-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .client-name {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .values {
+            text-align: center;
+        }
+
+        .values h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* CTA Sectie */
+        .cta {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta .btn {
+            background-color: white;
+            color: #007bff;
+        }
+
+        .cta .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            height: 150px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <div class="site-title">OST Creative Media</div>
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">Over ons</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-  <!-- Hero -->
-  <section class="hero-bg">
-    <div class="hero-text">
-      <h1><b>OST</b> Creative Media</h1>
-      <h2>Short-form Media Agency</h2>
-    </div>
-  </section>
-  <!-- Services -->
-  <section id="home" class="container">
-    <h1>Wat wij doen</h1>
-    <p>Wij helpen bedrijven en merken toegang te geven naar een grotere markt, via short-form content.</p>
-    <div class="card">
-      <div class="image-container">
-        <img src="stockimage.jpg" alt="image">
-      </div>
-      <h2>Onze diensten</h2>
-      <ul>
-        <li>Social media content creatie</li>
-        <li>Korte promotievideo’s</li>
-        <li>Visuele storytelling</li>
-      </ul>
-    </div>
-  </section>
-  <!-- About -->
-  <section id="about" class="container">
-    <h2>Waarom OST Creative Media?</h2>
-    <p>Wij combineren creativiteit met strategie om content te maken die niet alleen mooi oogt, maar ook resultaten oplevert.</p>
-    <div class="card">
-      <div class="image-container">
-        <img src="stockimage.jpg" alt="image">
-      </div>
-      <h3>Onze voordelen</h3>
-      <ul>
-        <li>Creatieve en flexibele aanpak</li>
-        <li>Snel en efficiënt geleverd</li>
-        <li>Altijd afgestemd op jouw merk</li>
-      </ul>
-    </div>
-  </section>
-  <!-- CTA -->
-  <section class="container center">
-    <div class="card" style="cursor:pointer; text-align:center;">
-      <a href="https://calendly.com/ostcreativemarketing" target="_blank">
-        <h2>Plan nu een gratis gesprek in</h2>
-      </a>
-      <p>Wij reageren meestal binnen 24 uur. Tot snel!</p>
-    </div>
-  </section>
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <p>Heb je vragen of wil je met ons samenwerken? Stuur een mailtje naar <a href="mailto:ostcreativemedia@gmail.com">ostcreativemedia@gmail.com [placeholder]</a>.</p>
-  </section>
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 OST Creative Media. Alle rechten voorbehouden.</p>
-  </footer>
-  <script>
-    // Reveal on scroll
-    const sections = document.querySelectorAll('.container');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-    // Parallax effect
-    document.addEventListener("scroll", () => {
-      const y = window.scrollY * 0.2;
-      document.querySelector(".hero-bg").style.backgroundPosition = `center calc(50% + ${y}px)`;
-    });
-  </script>
+    <header>
+        <div class="container header-container">
+            <a href="#"><img src="logo.png" alt="OST Creative Media Logo" class="logo"></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Wij helpen bedrijven groeien met Social Media</h1>
+            <p>Ost Creative Media helpt jouw bedrijf groeien met krachtige pakkende videocontent voor sociale media. Van concept tot publicatie: wij bedenken, filmen en monteren verticale video's die jouw merk zichtbaar en aantrekkelijk maken op TikTok, Instagram en Facebook. Zo bereik je sneller je doelgroep en laat je jouw bedrijf tussen je concurrenten uitblinken.</p>
+            <a href="https://calendly.com/ostcreativemarketing" class="btn">Plan nu een gratis strategie gesprek in</a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Wat klanten zeggen</h2>
+            <div class="testimonial-card">
+                <img src="edgar.png" alt="Edgar Fereitas" class="client-photo">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Met Ruben samenwerken is een aanrader. Hij brengt positieve energie, denkt actief mee en levert kwalitatief sterke content. OST Creative Media is een betrouwbare partner die ik in de toekomst zeker opnieuw zal inschakelen voor social media en filmmateriaal."</p>
+                <p class="client-name">Edgar Fereitas van Fit Fight Kickboxen</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2>Onze kernwaarden</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Transparantie</h3>
+                    <p>Bij ons is openheid en eerlijkheid belangrijk. Jij weet altijd wat er gebeurt in elk project, van planning tot uitvoering. We communiceren duidelijk over verwachtingen, voortgang en resultaten, zodat er geen verrassingen zijn. Zo bouwen we vertrouwen en een samenwerking waarin jij precies weet waar je aan toe bent.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Kwaliteit</h3>
+                    <p>Bij ons staat kwaliteit voorop. We leveren creatieve, professionele videocontent die jouw merk echt laat opvallen. Elk detail telt, van concept tot montage. We zorgen ervoor dat jouw boodschap scherp en aantrekkelijk overkomt, zodat jouw doelgroep geboeid blijft en jouw bedrijf zich onderscheidt van de rest.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Snelheid</h3>
+                    <p>Bij ons draait alles om snelle resultaten zonder in te leveren op kwaliteit. Ideeën zetten we razendsnel om in content, zodat jij altijd actuele en relevante video's hebt. Zo speel je in op trends, blijf je zichtbaar voor je doelgroep en verlies je nooit momentum in de online wereld.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Klaar om te groeien?</h2>
+            <p>Neem vandaag nog contact op voor een gratis strategie gesprek en ontdek hoe wij jouw bedrijf kunnen helpen groeien met social media.</p>
+            <a href="https://calendly.com/ostcreativemarketing" class="btn">Plan een gratis strategie gesprek</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="logo.png" alt="OST Creative Media Logo" class="footer-logo">
+                </div>
+                <div class="footer-contact">
+                    <p><strong>Contactgegevens</strong></p>
+                    <p>Telefoon: +31 6 3836 9058</p>
+                    <p>E-mail: ostcreativemarketing@outlook.com</p>
+                </div>
+                <div class="footer-social">
+                    <p><strong>Volg ons</strong></p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/ost_creativemarketing/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 OST Creative Media. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
